@@ -1,25 +1,30 @@
 #include <raylib.h>
-#include "ball.h"
+#include "AnalogClock.hpp"
 
 int main() 
 {
-    const Color darkGreen = {20, 160, 133, 255};
+    const Color LIGHT_BLUE = {255, 239, 240, 255};
     
-    constexpr int screenWidth = 800;
+    constexpr int screenWidth = 600;
     constexpr int screenHeight = 600;
     
-    Ball ball;
-    
-    InitWindow(screenWidth, screenHeight, "My first RAYLIB program!");
-    SetTargetFPS(60);
+    InitWindow(screenWidth, screenHeight, "Analog Clock");
+    SetTargetFPS(15);
+
+    // AnalogClock clock {250, {300, 300}};
+    AnalogClock clock = AnalogClock(250, {300, 300});
     
     while (!WindowShouldClose())
     {
-        ball.Update();
-        
+        // 1. Event Handlig
+
+        // 2. Updating
+
+        // 3. Drawing
         BeginDrawing();
-            ClearBackground(darkGreen);
-            ball.Draw();
+        ClearBackground(LIGHT_BLUE);
+        clock.Draw();
+        clock.Update();
         EndDrawing();
     }
     
